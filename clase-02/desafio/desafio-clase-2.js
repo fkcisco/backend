@@ -15,10 +15,10 @@ class Usuario {
        return this.mascotas.length
      }
     addBook(titulo,autor) {
-        return this.libros.push({nombre:titulo, autor: autor })
+        this.libros.push({titulo:titulo,autor:autor})        
     }
     getBookName(){
-        return this.libros.map((libro)=> libro.nombre)      
+        return this.libros.map((libr) =>libr.titulo)   
     }
 }
 
@@ -34,4 +34,5 @@ francisco.addBook("Baila,Baila,Baila", "Haruki Murakami")
 francisco.addBook("La Metamorfosis", "Franz Kafka")
 francisco.addBook("Mi Planta Naranja Lima", "José Mauro de Vasconcelos")
 console.log(francisco.getBookName())
+
 

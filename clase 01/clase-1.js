@@ -7,3 +7,9 @@ const peliculasFavoritas = [
     {nombre: "Juana la Loca", year: 1986, protagonistas: ["actor 1", "actor 2", "actor 3"]}]
 
     console.log(name, edad, precio, seriesFavoritas,peliculasFavoritas)
+
+
+
+// repaso javascript curso anterior
+
+// ciclos iteraciones
