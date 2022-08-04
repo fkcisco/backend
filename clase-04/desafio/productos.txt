@@ -1,0 +1,1 @@
+[{"id":1,"titulo":"Zapatilla Nike","precio":15000,"thumbnail":"https://madryn-ads.com.ar/react/img/Jordan-Low-rojas.jpg"},{"id":2,"titulo":"Zapatilla Puma","precio":12000,"thumbnail":"https://madryn-ads.com.ar/react/img/Puma-RSX.jpg"},{"id":3,"titulo":"Medias Adidas","precio":1500,"thumbnail":"https://madryn-ads.com.ar/react/img/adidas.jpg"}]

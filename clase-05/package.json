@@ -1,0 +1,22 @@
+{
+  "name": "1.0.0",
+  "version": "1.0.0",
+  "description": "detalle para la clase",
+  "main": "main.js",
+  "scripts": {
+    "test": "fran"
+  },
+  "repository": {
+    "type": "git",
+    "url": "fra"
+  },
+  "keywords": [
+    "fran"
+  ],
+  "author": "fran",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "~2.29.4",
+    "nodemon": "^2.0.19"
+  }
+}

@@ -26,17 +26,21 @@ class Contenedor {
         this.nombreArchivo = nombreArchivo 
     }
 
-    async consultarCrearArchivo(){
-        try {
-            await fs.promises.access(this.nombreArchivo)
-             .then( ()=> console.log("El Archivo ya Existe en la Carpeta") )          
-        } catch (error) {
-            await fs.promises.writeFile(this.nombreArchivo, "[]", "utf8")
-            .then(  ()=> this.cargarInfo()  )
-             .then( ()=> console.log("El Archivo se creo Correctamente") )
-            .catch(err => console.log(err))
-        }
-    }
+    
+    async consultarCrearArchivo() {
+        try {    
+          await fs.promises.access(this.nombreArchivo);    
+          console.log('El Archivo ya Existe en la Carpeta');    
+        } catch (error) {    
+          try {    
+            await fs.promises.writeFile(this.nombreArchivo, '[]', 'utf8');    
+            await this.cargarInfo();    
+            console.log('El Archivo se creo Correctamente');    
+          } catch (error) {    
+            console.log(error);    
+          }    
+        }    
+      }
 
     async cargarInfo(){                 
         await fs.promises.writeFile(this.nombreArchivo, JSON.stringify(contenido))
@@ -46,7 +50,8 @@ class Contenedor {
 
     async getAll(){
         try {
-            return JSON.parse(await fs.promises.readFile(this.nombreArchivo, 'utf8'));
+            const resultado = JSON.parse(await fs.promises.readFile(this.nombreArchivo, 'utf8'));
+            return console.log(resultado)
         } catch(error) {
             throw new Error(error)
         }
@@ -55,7 +60,8 @@ class Contenedor {
     async getById(id){
         try {
             const data = await this.getAll();
-            return data.find(item => item.id == id);
+            const resultado = data.find(item => item.id == id);
+            console.log(resultado)
         } catch (error) {
             throw new Error(error);
         }
@@ -70,7 +76,7 @@ class Contenedor {
                     const cargar = {id:idNuevo,...contenido} 
                     data.push(cargar)
                     await fs.promises.writeFile(this.nombreArchivo, JSON.stringify(data)) 
-                    .then(()=>{ console.log("Se agrego el producto correctamente")})
+                    .then(()=>{ console.log(`Se agrego el producto correctamente con el id: ${idNuevo}`)})
                     .catch(err => console.log(err))
                 
                 } else {
@@ -80,8 +86,8 @@ class Contenedor {
                     const cargar = {id:idNuevo,...contenido} 
                     data.push(cargar)     
                     await fs.promises.writeFile(this.nombreArchivo, JSON.stringify(data)) 
-                    .then(()=>{ console.log("Se agrego el producto correctamente")})
-                     .catch(err => console.log(err))
+                    .then(()=>{ console.log(`Se agrego el producto correctamente con el id: ${idNuevo}`)})
+                    .catch(err => console.log(err))
                 }      
              
         } catch (error) {             
@@ -112,6 +118,7 @@ class Contenedor {
             const newData = data.filter(item => item.id != id)
             data.push(newData)
             await fs.promises.writeFile(this.nombreArchivo, JSON.stringify(data))
+            .then(()=>{ console.log(`Se Elimino correcatamente el id: ${id}`)})
         } catch (error) {
             throw new Error("error al borrar")
        }
@@ -119,29 +126,17 @@ class Contenedor {
     }
 }
 
+
+
 const todoAsincro = async () => {
-
 const catalogoProductos = new Contenedor('./productos.txt')
-
-catalogoProductos.consultarCrearArchivo()
-
-catalogoProductos.cargarInfo()
-
-catalogoProductos.save({titulo:"Zapatilla Agregada 10","precio":15000,thumbnail:"#"})
-
-const product = await catalogoProductos.getById(2);
-    console.log('El ID buscado: ', product);
+await catalogoProductos.consultarCrearArchivo()
+await catalogoProductos.cargarInfo()
+// await catalogoProductos.save({titulo:"Zapatilla Agregada 10","precio":15000,thumbnail:"#"})
+// await catalogoProductos.getById(2)
+// await catalogoProductos.deleteById(1)
+await catalogoProductos.getAll()
 
 
-catalogoProductos.deleteById(1)
-
-const products = await catalogoProductos.getAll();
-console.log(products);
-
-//catalogoProductos.deleteAll()
-
-const productVacio = await catalogoProductos.getAll();
-console.log(productVacio);
 }
-
 todoAsincro()     
