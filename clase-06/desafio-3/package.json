@@ -1,0 +1,16 @@
+{
+  "name": "desafio3-clase6",
+  "version": "1.0.0",
+  "description": "Desafio número 3 de la clase 6 del curso Backend en CoderHouse",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Francisco Robledo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  }
+}
