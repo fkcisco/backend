@@ -1,0 +1,15 @@
+{
+  "name": "clase",
+  "version": "1.0.0",
+  "description": "ejemplos de la clase 07  de Expres avanzado",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
