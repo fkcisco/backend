@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Productos</h1>  
+       {{> navegador}}  
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Titulo</th>
+        <th scope="col">Precio</th>
+        <th scope="col">URL</th>
+      </tr>
+    </thead>
+    <tbody>
+  
+  {{#if productoExiste}}
+      {{#each listaProductos}}
+      <tr>
+        <th scope="row">{{id}}</th>
+        <td>{{titulo}}</td>
+        <td>{{precio}}</td>
+        <td>{{thumbnail}}</td>
+      </tr>
+      {{/each}}
+  
+  {{/if}}
+  
+  
+    </tbody>
+  </table>
+</div>

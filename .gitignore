@@ -5,5 +5,11 @@
 /clase-08/node_modules
 /clase-08/desafio/node_modules
 /clase-09/node_modules
+/clase-10/node_modules
+/clase-10/desafio/handlebars/node_modules
+/clase-10/desafio/pug/node_modules
+/clase-10/desafio/ejs/node_modules
+/clase-11/node_modules
+/clase-12/node_modules
 
 curso-backend.code-workspace

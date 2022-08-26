@@ -1,0 +1,18 @@
+include partials/head.pug
+include partials/navegador.pug
+    div(class="container")
+      h1="Productos"
+      table(class="table")
+        thead
+          tr
+            th ID
+            th Precio
+            th Titulo
+            th URL
+        tbody  
+        each producto in lista
+            tr
+              th=producto.id
+              td=producto.titulo
+              td=producto.precio
+              td=producto.thumbnail
