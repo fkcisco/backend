@@ -14,7 +14,7 @@ app.use(express.static(join(__dirname, 'public')))
 
 io.on('connection', socket => {
   console.log('Nuevo cliente conectado')
-
+  
   socket.on("mensajeEnviado", mensajes =>{
     io.sockets.emit("mensajesRecibidos", mensajes)
     })
@@ -28,9 +28,9 @@ const connectedServer = httpServer.listen(8080, ()=>{
 connectedServer.on("error", error => console.log)
 
 
-// app.get('/', (req, res) => {
-//   res.sendFile(join(__dirname, '/index.html'))
-// })
+app.get('/', (req, res) => {
+  res.sendFile(join(__dirname, '/index.html'))
+})
 
 
 // const PORT = process.env.PORT || 8080
